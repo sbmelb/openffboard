@@ -74,10 +74,10 @@ void ExitDFU();
 #define DIN3_GPIO_Port GPIOE
 #define DIN2_Pin GPIO_PIN_13
 #define DIN2_GPIO_Port GPIOC
-#define DIN1_Pin GPIO_PIN_14
-#define DIN1_GPIO_Port GPIOC
-#define DIN0_Pin GPIO_PIN_15
-#define DIN0_GPIO_Port GPIOC
+#define DIN1_Pin GPIO_PIN_12
+#define DIN1_GPIO_Port GPIOD
+#define DIN0_Pin GPIO_PIN_10
+#define DIN0_GPIO_Port GPIOD
 #define AIN5_Pin GPIO_PIN_0
 #define AIN5_GPIO_Port GPIOC
 #define AIN4_Pin GPIO_PIN_1
@@ -104,9 +104,9 @@ void ExitDFU();
 #define SPI1_SS2_GPIO_Port GPIOB
 #define SPI1_SS3_Pin GPIO_PIN_1
 #define SPI1_SS3_GPIO_Port GPIOB
-#define BUTTON_A_Pin GPIO_PIN_2
-#define BUTTON_A_GPIO_Port GPIOB
-#define BUTTON_A_EXTI_IRQn EXTI2_IRQn
+#define BUTTON_A_Pin GPIO_PIN_3
+#define BUTTON_A_GPIO_Port GPIOD
+#define BUTTON_A_EXTI_IRQn EXTI3_IRQn
 #define DRV_ENABLE_Pin GPIO_PIN_7
 #define DRV_ENABLE_GPIO_Port GPIOE
 #define FLAG_Pin GPIO_PIN_8
