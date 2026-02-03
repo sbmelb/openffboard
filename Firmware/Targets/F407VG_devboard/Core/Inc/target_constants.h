@@ -61,7 +61,7 @@
 //----------------------
 #define BTNFAILSAFE // Use user button to force board into failsafe mainclass
 
-#define TIM_ENC htim3
+#define TIM_ENC htim2
 // Timer 3 is used by the encoder.
 #define TIM_PWM htim1
 
