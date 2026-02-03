@@ -734,12 +734,13 @@ void HAL_TIM_Base_MspInit(TIM_HandleTypeDef* htim_base)
     /**TIM2 GPIO Configuration
     PA1     ------> TIM2_CH2
     */
-    GPIO_InitStruct.Pin = GP5_Pin;
+   /* GPIO_InitStruct.Pin = GP5_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     GPIO_InitStruct.Alternate = GPIO_AF1_TIM2;
     HAL_GPIO_Init(GP5_GPIO_Port, &GPIO_InitStruct);
+    */
 
     /* TIM2 interrupt Init */
     HAL_NVIC_SetPriority(TIM2_IRQn, 7, 0);
@@ -1066,30 +1067,23 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* htim_base)
 * @param htim_encoder: TIM_Encoder handle pointer
 * @retval None
 */
+
 void HAL_TIM_Encoder_MspDeInit(TIM_HandleTypeDef* htim_encoder)
 {
-  if(htim_encoder->Instance==TIM3)
+  if(htim_encoder->Instance==TIM2)
   {
-  /* USER CODE BEGIN TIM3_MspDeInit 0 */
-
-  /* USER CODE END TIM3_MspDeInit 0 */
-    /* Peripheral clock disable */
-    __HAL_RCC_TIM3_CLK_DISABLE();
-
-    /**TIM3 GPIO Configuration
-    PC6     ------> TIM3_CH1
-    PC7     ------> TIM3_CH2
-    */
-    HAL_GPIO_DeInit(GPIOC, ENCODER_A_Pin|ENCODER_B_Pin);
-
-    /* TIM3 interrupt DeInit */
-    HAL_NVIC_DisableIRQ(TIM3_IRQn);
-  /* USER CODE BEGIN TIM3_MspDeInit 1 */
-
-  /* USER CODE END TIM3_MspDeInit 1 */
+    __HAL_RCC_TIM2_CLK_DISABLE();
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_0|GPIO_PIN_1);
+    HAL_NVIC_DisableIRQ(TIM2_IRQn);
   }
-
+  else if(htim_encoder->Instance==TIM3)
+  {
+    __HAL_RCC_TIM3_CLK_DISABLE();
+    HAL_GPIO_DeInit(GPIOC, ENCODER_A_Pin|ENCODER_B_Pin);
+    HAL_NVIC_DisableIRQ(TIM3_IRQn);
+  }
 }
+
 
 /**
 * @brief UART MSP Initialization
