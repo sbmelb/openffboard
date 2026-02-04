@@ -62,8 +62,9 @@
 #define BTNFAILSAFE // Use user button to force board into failsafe mainclass
 
 #define TIM_ENC htim2
-// Timer 3 is used by the encoder.
+// Timer 3 is used by the encoder. - *note - changed to tim2
 #define TIM_PWM htim1
+// TIM_PWM = the timer that governs the bts-7960 H-bridge (motor drive)
 
 #define TIM_MICROS_HALTICK htim7 // Micros timer MUST be reset by hal tick timer or isr to count microseconds since last tick
 #define TIM_USER htim9 // Timer with full core clock speed available for the mainclass

@@ -185,6 +185,16 @@ int main(void)
   HAL_GPIO_WritePin(LED_ERR_GPIO_Port, LED_ERR_Pin, GPIO_PIN_SET);
   HAL_Delay(100);
 
+
+    /* Initialize interrupts */
+  MX_NVIC_Init();
+  /* USER CODE BEGIN 2 */
+
+  HAL_TIM_Encoder_Start_IT(&htim2, TIM_CHANNEL_ALL);
+
+  MX_USB_OTG_FS_PCD_Init();
+
+  
   // Backup domain enable
 //  HAL_PWR_EnableBkUpAccess();
 //  HAL_PWR_EnableBkUpReg();

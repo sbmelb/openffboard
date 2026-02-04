@@ -1073,17 +1073,11 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef* htim_base)
 
 void HAL_TIM_Encoder_MspDeInit(TIM_HandleTypeDef* htim_encoder)
 {
-  if(htim_encoder->Instance==TIM2)
+  if (htim_encoder->Instance == TIM2)
   {
     __HAL_RCC_TIM2_CLK_DISABLE();
     HAL_GPIO_DeInit(GPIOA, GPIO_PIN_0|GPIO_PIN_1);
     HAL_NVIC_DisableIRQ(TIM2_IRQn);
-  }
-  else if(htim_encoder->Instance==TIM3)
-  {
-    __HAL_RCC_TIM3_CLK_DISABLE();
-    HAL_GPIO_DeInit(GPIOC, ENCODER_A_Pin|ENCODER_B_Pin);
-    HAL_NVIC_DisableIRQ(TIM3_IRQn);
   }
 }
 
