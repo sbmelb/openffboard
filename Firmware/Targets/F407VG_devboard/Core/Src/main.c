@@ -150,6 +150,19 @@ int main(void)
   /* Configure the system clock */
   SystemClock_Config();
 
+// TEMP TEST: force PA0/PA1 as GPIO inputs with pull-ups so they read ~3.3V on a multimeter.
+__HAL_RCC_GPIOA_CLK_ENABLE();
+
+GPIO_InitTypeDef GPIO_InitStruct = {0};
+GPIO_InitStruct.Pin = GPIO_PIN_0 | GPIO_PIN_1;
+GPIO_InitStruct.Mode = GPIO_MODE_INPUT;
+GPIO_InitStruct.Pull = GPIO_PULLUP;
+HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
+// Hold here so you can measure with a multimeter
+while (1) { }
+
+
   /* USER CODE BEGIN SysInit */
   /* USER CODE END SysInit */
 
