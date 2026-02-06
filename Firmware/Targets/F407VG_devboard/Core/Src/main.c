@@ -165,7 +165,7 @@ int main(void)
   MX_TIM1_Init();
   MX_SPI2_Init();
   MX_TIM4_Init();
-  MX_TIM5_Init();
+  // MX_TIM5_Init();
   MX_SPI1_Init();
   MX_CAN1_Init();
   MX_ADC2_Init();
